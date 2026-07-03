@@ -37,7 +37,6 @@ export function FormBuilder() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [type, setType] = useState<"public" | "patient_linked">("patient_linked");
-  const [adminToken, setAdminToken] = useState("");
   const [questions, setQuestions] = useState<BuilderQuestion[]>([
     { ...blankQuestion, label: "Qual foi seu peso mais recente?", type: "weight" },
     { ...blankQuestion, label: "De 0 a 10, como foi sua adesao ao plano?", type: "scale" }
@@ -68,8 +67,7 @@ export function FormBuilder() {
     const response = await fetch("/api/admin/forms", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
-        "x-admin-token": adminToken
+        "Content-Type": "application/json"
       },
       body: JSON.stringify({
         title,
@@ -119,16 +117,6 @@ export function FormBuilder() {
         <div className={styles.builderPanel}>
           <h2>Configuracao</h2>
           <div className={styles.formGrid}>
-            <div className="field">
-              <label>Chave administrativa</label>
-              <input
-                placeholder="ADMIN_ACCESS_TOKEN"
-                type="password"
-                value={adminToken}
-                onChange={(event) => setAdminToken(event.target.value)}
-              />
-              <span className="hint">Use a mesma chave configurada na Vercel.</span>
-            </div>
             <div className="field">
               <label>Nome do formulario</label>
               <input value={title} onChange={(event) => setTitle(event.target.value)} />

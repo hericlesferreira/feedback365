@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
+import { cookies } from "next/headers";
+import { adminCookieName, getAdminSessionValue } from "@/lib/admin-auth";
 import { slugify } from "@/lib/slug";
 import { getSupabaseAdmin } from "@/lib/supabase/server";
 
@@ -29,14 +31,18 @@ const createFormSchema = z.object({
   questions: z.array(questionSchema).min(1)
 });
 
-function isAuthorized(request: Request) {
-  const token = process.env.ADMIN_ACCESS_TOKEN;
-  if (!token) return false;
-  return request.headers.get("x-admin-token") === token;
+async function isAuthorized(request: Request) {
+  const sessionValue = getAdminSessionValue();
+  if (!sessionValue) return false;
+
+  const cookieStore = await cookies();
+  const cookie = cookieStore.get(adminCookieName)?.value;
+
+  return cookie === sessionValue || request.headers.get("x-admin-token") === process.env.ADMIN_ACCESS_TOKEN;
 }
 
 export async function POST(request: Request) {
-  if (!isAuthorized(request)) {
+  if (!(await isAuthorized(request))) {
     return NextResponse.json({ message: "Acesso administrativo invalido." }, { status: 401 });
   }
 

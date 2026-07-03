@@ -1,5 +1,6 @@
 import Link from "next/link";
 import styles from "./admin.module.css";
+import { LogoutButton } from "./logout-button";
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -19,6 +20,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           <Link className="button secondary" href="/f/checkin-semanal">
             Exemplo paciente
           </Link>
+          <LogoutButton />
         </div>
       </nav>
       {children}
