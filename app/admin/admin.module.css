@@ -1,0 +1,175 @@
+.layout {
+  display: grid;
+  gap: 26px;
+  margin: 0 auto;
+  max-width: 1180px;
+  padding: 28px;
+}
+
+.nav {
+  align-items: center;
+  display: flex;
+  gap: 14px;
+  justify-content: space-between;
+}
+
+.brand {
+  display: grid;
+  gap: 3px;
+}
+
+.brand strong {
+  font-size: 1.18rem;
+}
+
+.brand span {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.hero {
+  align-items: flex-end;
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 3.8rem);
+  letter-spacing: 0;
+  line-height: 1;
+  margin: 0;
+}
+
+.hero p {
+  color: var(--muted);
+  line-height: 1.58;
+  margin: 14px 0 0;
+  max-width: 720px;
+}
+
+.grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.panel,
+.stat,
+.builderPanel {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.stat {
+  display: grid;
+  gap: 8px;
+  padding: 20px;
+}
+
+.stat span {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.stat strong {
+  font-size: 2rem;
+}
+
+.panel {
+  padding: 22px;
+}
+
+.panel h2,
+.builderPanel h2 {
+  font-size: 1.25rem;
+  margin: 0 0 16px;
+}
+
+.list {
+  display: grid;
+  gap: 10px;
+}
+
+.item {
+  align-items: center;
+  background: var(--surface-soft);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  padding: 14px;
+}
+
+.item div {
+  display: grid;
+  gap: 4px;
+}
+
+.item span {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.builder {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: minmax(320px, 0.9fr) minmax(0, 1.1fr);
+}
+
+.builderPanel {
+  padding: 20px;
+}
+
+.formGrid {
+  display: grid;
+  gap: 14px;
+}
+
+.questionEditor {
+  background: var(--surface-soft);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  display: grid;
+  gap: 12px;
+  padding: 14px;
+}
+
+.row {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 1fr 160px;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+@media (max-width: 860px) {
+  .layout {
+    padding: 20px;
+  }
+
+  .hero,
+  .nav {
+    align-items: flex-start;
+    display: grid;
+  }
+
+  .grid,
+  .builder,
+  .row {
+    grid-template-columns: 1fr;
+  }
+}
