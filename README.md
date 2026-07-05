@@ -52,6 +52,15 @@ Email: paciente@exemplo.com
 CPF: 123.456.789-09
 ```
 
+## Atualizacoes de banco
+
+Se voce ja rodou o schema antes da tela de pacientes, rode tambem:
+
+```sql
+alter table public.patients
+add column if not exists cpf_last4 text;
+```
+
 ## Observacao LGPD
 
 CPF e respostas de saude/nutricao sao dados pessoais sensiveis. O projeto evita expor CPF puro na base, mas ainda precisa de politica de privacidade, controle de acesso administrativo, revisao de consentimento e rotinas de retencao/exclusao antes de uso em producao.

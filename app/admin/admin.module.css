@@ -120,6 +120,17 @@
   font-size: 0.9rem;
 }
 
+.badge {
+  background: #e9f3ef;
+  border: 1px solid #cfe5dc;
+  border-radius: 999px;
+  color: var(--brand) !important;
+  flex: 0 0 auto;
+  font-size: 0.82rem !important;
+  font-weight: 800;
+  padding: 6px 10px;
+}
+
 .builder {
   display: grid;
   gap: 18px;
@@ -154,6 +165,16 @@
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+}
+
+.spin {
+  animation: spin 900ms linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @media (max-width: 860px) {

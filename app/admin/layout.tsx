@@ -14,6 +14,9 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           <Link className="button secondary" href="/admin/formularios">
             Formularios
           </Link>
+          <Link className="button secondary" href="/admin/pacientes">
+            Pacientes
+          </Link>
           <Link className="button secondary" href="/admin/formularios/novo">
             Novo formulario
           </Link>

@@ -41,8 +41,8 @@ export default function AdminPage() {
         <div className={styles.list}>
           <div className={styles.item}>
             <div>
-              <strong>Importar pacientes por CSV</strong>
-              <span>Nome, email, CPF, telefone e status.</span>
+              <strong>Cadastrar pacientes manualmente</strong>
+              <span>Nome, email, CPF, telefone e status ativo.</span>
             </div>
           </div>
           <div className={styles.item}>

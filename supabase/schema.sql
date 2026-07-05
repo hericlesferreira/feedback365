@@ -19,6 +19,7 @@ create table public.patients (
   name text not null,
   email text not null,
   cpf_hash text not null,
+  cpf_last4 text,
   phone text,
   status patient_status not null default 'active',
   created_at timestamptz not null default now(),
